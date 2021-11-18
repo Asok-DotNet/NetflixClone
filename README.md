@@ -41,4 +41,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### `UI`
 
-![image](public\NetflixClone.png)
+![image](public/NetflixClone.png)
