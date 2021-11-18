@@ -11,20 +11,22 @@ function Row(props) {
     React.useEffect(() => {
         async function fetchData() {
             const request = await axios.get(props.fetchurl);
-            console.table(request.data.results);
+            // console.table(request.data.results);
             setMovies(request.data.results);
             return request;
-            //setMovies(json.Search);
         }
         fetchData();
     }, [props.fetchurl])
 
     return (
-        <div>
+        <div className="row">
             <h2>{props.title}</h2>
             <div className="row__posters">
                 {movies.map(movie => (
-                    <img key={movie.id} className="row__poster" src={`${base_url}${movie.poster_path}`} alt={movie.name} />
+                    <img
+                        key={movie.id}
+                        className={`row__poster ${props.isLargerRow && "row__posterLarge"}`}
+                        src={`${base_url}${props.isLargerRow ? movie.poster_path : movie.backdrop_path}`} alt={movie.name} />
                 ))}
             </div>
 
